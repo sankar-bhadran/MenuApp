@@ -3,11 +3,19 @@ import Image from "next/image";
 import FrameOne from "@/public/images/listinframtwo.png";
 import FrameTwo from "@/public/images/listingframone.png";
 
-interface Props {
-  items: [];
-}
+type MenuItems = {
+  id: string;
+  itemName: string;
+  price: number;
+  description: string;
+  menuId: string;
+};
 
-const Listingpage = ({ items }: Props) => {
+interface ListingpageProps {
+  items: MenuItems[]; // Expecting an array of MenuItems
+}
+const Listingpage: React.FC<ListingpageProps> = ({ items }) => {
+  console.log(items);
   return (
     <div className="w-[100%] bg-[url('/images/listingbackgroundpic.png')] flex justify-between">
       <Image

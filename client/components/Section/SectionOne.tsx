@@ -7,15 +7,22 @@ interface MenuItem {
   menuName: string;
 }
 
+type MenuItems = {
+  id: string;
+  itemName: string;
+  price: number;
+  description: string;
+  menuId: string;
+};
+
 const SectionOne = () => {
   const [allMenu, setAllMenu] = useState<MenuItem[]>([]);
-  const [getAllItems, setGetAllItems] = useState();
+  const [getAllItems, setGetAllItems] = useState<MenuItems[]>([]);
 
   const getAllMenu = async () => {
     try {
       const response = await fetch("http://localhost:5000/api/getmenu");
       const data = await response.json();
-      console.log(data);
       setAllMenu(data);
     } catch (error) {
       console.log(error);
@@ -24,6 +31,7 @@ const SectionOne = () => {
   useEffect(() => {
     getAllMenu();
   }, []);
+  console.log(allMenu);
 
   const handleIdClick = async (id: string) => {
     console.log(id);

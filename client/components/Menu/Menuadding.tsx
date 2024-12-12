@@ -25,7 +25,9 @@ const Menuadding: React.FC = () => {
     price: "",
   });
 
-  const handleMenuDetails = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleMenuDetails = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setMenuDetails((prevState) => ({
       ...prevState,
@@ -33,7 +35,9 @@ const Menuadding: React.FC = () => {
     }));
   };
 
-  const handleAddItem = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleAddItem = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setAddItem((prevState) => ({
       ...prevState,
@@ -55,7 +59,9 @@ const Menuadding: React.FC = () => {
     getAllMenu();
   }, [menuDetails]);
 
-  const showModal = (e) => {
+  const showModal = (
+    e: React.MouseEvent<HTMLButtonElement | HTMLDivElement, MouseEvent>
+  ) => {
     e.preventDefault();
     setIsModalOpen(true);
   };
