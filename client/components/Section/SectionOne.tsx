@@ -33,7 +33,7 @@ const SectionOne = () => {
   useEffect(() => {
     getAllMenu();
   }, []);
-  console.log(allMenu);
+  console.log(`allmenu ${allMenu}`);
 
   const handleIdClick = async (id: string) => {
     console.log(id);
