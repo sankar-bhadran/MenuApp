@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { Modal } from "antd";
 
 interface MenuItem {
@@ -6,10 +6,15 @@ interface MenuItem {
   menuName: string;
 }
 
+interface MenuDetails {
+  menuName: string;
+  description: string;
+}
+
 const Menuadding: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [allMenu, setAllMenu] = useState<MenuItem[]>([]);
-  const [menuDetails, setMenuDetails] = useState({
+  const [menuDetails, setMenuDetails] = useState<MenuDetails>({
     menuName: "",
     description: "",
   });
@@ -20,7 +25,7 @@ const Menuadding: React.FC = () => {
     price: "",
   });
 
-  const handleMenuDetails = (e) => {
+  const handleMenuDetails = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setMenuDetails((prevState) => ({
       ...prevState,
@@ -28,7 +33,7 @@ const Menuadding: React.FC = () => {
     }));
   };
 
-  const handleAddItem = (e) => {
+  const handleAddItem = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setAddItem((prevState) => ({
       ...prevState,

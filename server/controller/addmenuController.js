@@ -4,13 +4,11 @@ const prisma = new PrismaClient();
 exports.addMenu = async (req, res) => {
   const { menuName, description } = req.body;
 
-  // Validate input
   if (!menuName) {
     return res.status(400).json({ message: "Menu name is required." });
   }
 
   try {
-    // Create a new menu item in the database
     const newMenu = await prisma.menu.create({
       data: {
         menuName,
