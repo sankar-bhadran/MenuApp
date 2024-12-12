@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Modal } from "antd";
-import axios from "@/utils/axiosinstances";
 
 interface MenuItem {
   id: string;
