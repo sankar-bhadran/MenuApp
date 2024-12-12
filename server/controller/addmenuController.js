@@ -15,6 +15,7 @@ exports.addMenu = async (req, res) => {
         description,
       },
     });
+    console.log(newMenu);
 
     return res.status(201).json({
       message: "Menu item added successfully.",
