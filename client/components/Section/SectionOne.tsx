@@ -9,7 +9,7 @@ interface MenuItem {
 
 const SectionOne = () => {
   const [allMenu, setAllMenu] = useState<MenuItem[]>([]);
-  const [getAllItems, setGetAllItems] = useState([]);
+  // const [getAllItems, setGetAllItems] = useState([]);
 
   const getAllMenu = async () => {
     try {

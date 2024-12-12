@@ -21,7 +21,7 @@ const Herosection = () => {
           <div className="text-[14px] leading-[21.82px] font-normal text-center w-[60%] md:w-[668px]">
             <span>
               Please take a look at our menu featuring food, drinks, and brunch.
-              If you'd like to place an order, use the "Order Online" button
+              If youd like to place an order, use the Order Online button
               located below the menu.
             </span>
           </div>
