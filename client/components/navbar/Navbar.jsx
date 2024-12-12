@@ -2,13 +2,16 @@ import React from "react";
 import Ham from "@/public/ci_hamburger-md.svg";
 import Log from "@/public/LogoOne.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <>
       <div className="w-full bg-[#121618] flex justify-between h-[65px] p-8 px-7 gap-[-10px] text-white relative">
         <div className=" hidden md:block  ml-24 ">
-          <h2>DeepNetSoft</h2>
+          <Link href="/">
+            <h2>DeepNetSoft</h2>
+          </Link>
         </div>
         <div>
           <Image

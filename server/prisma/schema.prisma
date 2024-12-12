@@ -30,7 +30,8 @@ model MenuItem {
   itemName    String   @unique
   price       Int
   description String?
-  menuId      String     
+  menuId      String  @unique
+
   menu        Menu     @relation(fields: [menuId], references: [id]) 
 
   createdAt   DateTime @default(now())

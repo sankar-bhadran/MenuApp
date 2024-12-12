@@ -36,14 +36,24 @@ exports.addMenuItem = async (req, res) => {
 
 exports.getItems = async (req, res) => {
   try {
-    const menusItems = await prisma.menuItem.findUnique({
-      where: {
-        id,
-      },
+    const { id } = req.query; // Extract the ID from the query params
+    if (!id) {
+      return res.status(400).json({ message: "ID is required." });
+    }
+    console.log(id);
+    const menuItem = await prisma.menuItem.findUnique({
+      where: { menuId: id },
+      include: { menu: true },
     });
-    res.status(200).json(menusItems);
+    console.log(menuItem);
+
+    if (!menuItem) {
+      return res.status(404).json({ message: "Menu item not found." });
+    }
+
+    res.status(200).json([menuItem]); // Wrapping menuItem in an array
   } catch (error) {
-    console.error("Error fetching menus:", error);
+    console.error("Error fetching menu item:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };

@@ -37,6 +37,7 @@ exports.addMenu = async (req, res) => {
 exports.getMenu = async (req, res) => {
   try {
     const menus = await prisma.menu.findMany();
+    console.log(menus);
     res.status(200).json(menus);
   } catch (error) {
     console.error("Error fetching menus:", error);

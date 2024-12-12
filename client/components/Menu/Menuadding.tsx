@@ -36,8 +36,6 @@ const Menuadding: React.FC = () => {
     }));
   };
 
-  console.log(addItem);
-
   const getAllMenu = async () => {
     try {
       const response = await fetch("http://localhost:5000/api/getmenu");
@@ -52,11 +50,8 @@ const Menuadding: React.FC = () => {
     getAllMenu();
   }, [menuDetails]);
 
-  useEffect(() => {
-    getAllMenu();
-  }, [menuDetails]);
-
-  const showModal = () => {
+  const showModal = (e) => {
+    e.preventDefault();
     setIsModalOpen(true);
   };
 
@@ -174,6 +169,7 @@ const Menuadding: React.FC = () => {
       <Modal
         title="Add Menu"
         open={isModalOpen}
+        visible={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
       >
