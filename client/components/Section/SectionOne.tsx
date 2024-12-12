@@ -21,7 +21,9 @@ const SectionOne = () => {
 
   const getAllMenu = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/getmenu");
+      const response = await fetch(
+        "https://menuapp-8ted.onrender.com/api/getmenu"
+      );
       const data = await response.json();
       setAllMenu(data);
     } catch (error) {
@@ -37,7 +39,7 @@ const SectionOne = () => {
     console.log(id);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/getmenuitem?id=${id}`
+        `https://menuapp-8ted.onrender.com/api/getmenuitem?id=${id}`
       );
       const data = await response.json();
       setGetAllItems(data);

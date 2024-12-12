@@ -47,7 +47,9 @@ const Menuadding: React.FC = () => {
 
   const getAllMenu = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/getmenu");
+      const response = await fetch(
+        "https://menuapp-8ted.onrender.com/api/getmenu"
+      );
       const data = await response.json();
       setAllMenu(data);
     } catch (error) {
@@ -68,13 +70,16 @@ const Menuadding: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/additem", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(addItem),
-      });
+      const response = await fetch(
+        "https://menuapp-8ted.onrender.com/api/additem",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(addItem),
+        }
+      );
 
       const result = await response.json();
 
@@ -90,13 +95,16 @@ const Menuadding: React.FC = () => {
 
   const handleOk = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/addmenu", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(menuDetails),
-      });
+      const response = await fetch(
+        "https://menuapp-8ted.onrender.com/api/addmenu",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(menuDetails),
+        }
+      );
 
       const result = await response.json();
 
