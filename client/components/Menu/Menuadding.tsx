@@ -48,7 +48,8 @@ const Menuadding: React.FC = () => {
   const getAllMenu = async () => {
     try {
       const response = await fetch(
-        "https://menuapp-8ted.onrender.com/api/getmenu",, {
+        "https://menuapp-8ted.onrender.com/api/getmenu",
+        {
           credentials: "include",
         }
       );
